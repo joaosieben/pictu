@@ -1,0 +1,84 @@
+body {
+	color: #626262;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+	font-size: 14px;
+	line-height: 160%;
+}
+
+#primary {
+	width: 700px;
+	margin: 30px auto;
+}
+
+#masthead,
+#main,
+#colophon {
+	clear: both;
+	float: none;
+	width: 100%;
+}
+
+/*= Cabeçalho.
+------------------------------------------------------=*/
+#masthead {
+	color: #AAA;
+}
+
+#masthead a {
+	color: #626262;
+}
+
+#masthead a:hover,
+#masthead a:focus,
+#masthead a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+/* Títulos. */
+#branding {
+	float: left;
+}
+
+#masthead h1.site-title,
+#masthead h2.page-title {
+	display: inline;
+}
+
+.site-title {
+	font-size: 25px;
+}
+
+.page-title {
+	font-size: 35px;
+}
+
+/* Menu de navegação. */
+#main-navigation {
+	float: right;
+	padding-top: 15px;
+	text-transform: lowercase;
+}
+
+#main-navigation a {
+	font-weight: bolder;
+}
+
+/*= Conteúdo.
+------------------------------------------------------=*/
+h3.section-title {
+	background-color: #000;
+	color: #FFF;
+	font-size: 15px;
+	text-align: center;
+}
+
+/*= Rodapé.
+------------------------------------------------------=*/
+#colophon p {
+	font-size: 9px;
+	font-weight: 600;
+	letter-spacing: 0.3em;
+	text-align: center;
+	text-transform: uppercase;
+}

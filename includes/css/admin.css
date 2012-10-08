@@ -1,0 +1,45 @@
+/*= Acesso.
+------------------------------------------------------=*/
+.auth #primary {
+	width: 450px;
+}
+
+.auth input[type="email"],
+.auth input[type="password"] {
+	width: 435px;
+}
+
+.auth label {
+	font-size: 12px;
+	margin: 0;
+}
+
+.auth .submit {
+	text-align: center;
+}
+
+button[type="submit"] {
+	background-color: #000;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000;
+	border-radius: 0;
+	color: #FFF;
+	font-weight: bolder;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:active {
+	background-color: #EFEFEF;
+	border-color: #EFEFEF;
+	color: #626262;
+}
+
+button[type="submit"]:active {
+	border-color: #000;
+}
+
+.section-title.error {
+	background-color: #800000;
+	color: #FFF;
+}

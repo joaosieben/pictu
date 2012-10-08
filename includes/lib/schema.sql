@@ -1,0 +1,73 @@
+DROP SCHEMA IF EXISTS pictu;
+
+CREATE SCHEMA pictu
+	DEFAULT CHARACTER SET utf8
+	COLLATE utf8_general_ci;
+	
+USE pictu;
+
+CREATE TABLE users (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	name VARCHAR(200) NOT NULL ,
+	email TINYTEXT NOT NULL ,
+	password LONGTEXT NOT NULL ,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE aspect_ratio (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	aspect VARCHAR(50) NOT NULL,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE color_schema (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	color VARCHAR(200) NOT NULL ,
+	PRIMARY KEY(id)	
+);
+
+CREATE TABLE country (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	country TINYTEXT NOT NULL ,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE films (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	original_title TINYTEXT NOT NULL ,
+	translated_title TINYTEXT NOT NULL ,
+	description LONGTEXT NOT NULL ,
+	running_time INT NOT NULL ,
+	year YEAR NOT NULL ,
+	is_featured BOOLEAN NOT NULL ,
+	aspect_ratio INT UNSIGNED NOT NULL ,
+	color_schema INT UNSIGNED NOT NULL ,
+	country INT UNSIGNED NOT NULL ,
+	PRIMARY KEY(id) ,
+	FOREIGN KEY(aspect_ratio)
+		REFERENCES asoect_ratio(id) ,
+	FOREIGN KEY(color_schema)
+		REFERENCES color_schema(id) ,
+	FOREIGN KEY(country)
+		REFERENCES country(id)
+);
+
+CREATE TABLE people (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	name TINYTEXT NOT NULL ,
+	quote TINYTEXT NOT NULL ,
+	bio LONGTEXT NOT NULL ,
+	is_featured BOOLEAN NOT NULL ,
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE films_people (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	film INT UNSIGNED NOT NULL ,
+	person INT UNSIGNED NOT NULL ,
+	PRIMARY KEY(id) ,
+	FOREIGN KEY(film)
+		REFERENCES films(id) ,
+	FOREIGN KEY(person)
+		REFERENCES people(id)
+);
