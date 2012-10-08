@@ -38,5 +38,21 @@
 		
 		header("location: $address");
 	}
+	# Se o usuário preencheu o formulário de redefinição de senha.
+	if($user_action == 'reset') {
+		$user_email = $_POST['user_email'];
+		
+		# Se o usuário não preencheu corretamente o formulário de redefinição de senha.
+		if(strlen($user_email) == 0) {
+			$address = "http://localhost/pictu/admin/reset-password.php?error=1";
+		}
+		else {
+			$user = new users($user_email,"000");
+			
+			$user->reset_password();
+			$address = "http://localhost/pictu/admin/reset-password.php?success=1";
+		}
+		header("location: $address");
+	}
 	
 ?>
