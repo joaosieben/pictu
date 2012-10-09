@@ -54,5 +54,12 @@
 		}
 		header("location: $address");
 	}
+	# Se o usuário quer encerrar uma seção iniciada.
+	if((isset($_GET['action'])) && ($_GET['action'] == 'logout')) {
+		session_start();
+		$user_email = $_SESSION['email'];
+		$user = new users($user_email,"000");
+		$user->logout();
+	}
 	
 ?>

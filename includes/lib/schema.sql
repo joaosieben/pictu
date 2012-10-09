@@ -14,6 +14,7 @@ CREATE TABLE users (
 	PRIMARY KEY(id)
 );
 
+
 CREATE TABLE aspect_ratio (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	aspect VARCHAR(50) NOT NULL,
@@ -39,10 +40,9 @@ CREATE TABLE films (
 	description LONGTEXT NOT NULL ,
 	running_time INT NOT NULL ,
 	year YEAR NOT NULL ,
-	is_featured BOOLEAN NOT NULL ,
+	is_featured BOOLEAN NOT NULL DEFAULT false ,
 	aspect_ratio INT UNSIGNED NOT NULL ,
 	color_schema INT UNSIGNED NOT NULL ,
-	country INT UNSIGNED NOT NULL ,
 	PRIMARY KEY(id) ,
 	FOREIGN KEY(aspect_ratio)
 		REFERENCES asoect_ratio(id) ,
@@ -52,22 +52,45 @@ CREATE TABLE films (
 		REFERENCES country(id)
 );
 
+CREATE TABLE roles (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	role VARCHAR(240) NOT NULL ,
+	PRIMARY KEY(id)
+);
+
 CREATE TABLE people (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
 	name TINYTEXT NOT NULL ,
 	quote TINYTEXT NOT NULL ,
 	bio LONGTEXT NOT NULL ,
+	major_role INT UNSIGNED NOT NULL ,
 	is_featured BOOLEAN NOT NULL ,
-	PRIMARY KEY(id)
+	PRIMARY KEY(id) ,
+	FOREIGN KEY(major_role)
+		REFERENCES roles(id)
+);
+
+CREATE TABLE films_country (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	film INT UNSIGNED NOT NULL ,
+	country INT UNSIGNED NOT NULL ,
+	PRIMARY KEY(id) ,
+	FOREIGN KEY(film)
+		REFERENCES films(id) ,
+	FOREIGN KEY(country) ,
+		REFERENCES country(id)
 );
 
 CREATE TABLE films_people (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT ,
 	film INT UNSIGNED NOT NULL ,
 	person INT UNSIGNED NOT NULL ,
+	role INT UNSIGNED NOT NULL ,
 	PRIMARY KEY(id) ,
 	FOREIGN KEY(film)
 		REFERENCES films(id) ,
 	FOREIGN KEY(person)
-		REFERENCES people(id)
+		REFERENCES people(id) ,
+	FOREIGN KEY(role)
+		REFERENCES roles(id)
 );

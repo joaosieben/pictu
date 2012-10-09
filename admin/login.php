@@ -12,10 +12,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>pictu. (entrar)</title>
-		<base href="../" />
+		<base href="http://localhost/pictu/" />
 		<script type="text/javascript" src="includes/js/bootstrap.js"></script>
 		<script type="text/javascript" src="includes/js/jquery.js"></script>
 		<script type="text/javascript" src="includes/js/modernizr.js"></script>
+		<script type="text/javascript" src="includes/js/popcorn.js"></script>
 		<link rel="stylesheet" type="text/css" href="includes/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="includes/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="includes/css/admin.css" />
